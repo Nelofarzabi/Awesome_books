@@ -3,15 +3,6 @@ const titleInput = document.querySelector('.title');
 const authorInput = document.querySelector('.author');
 const form = document.querySelector('form');
 let bookList = [];
-// Add book to booklist
-function addBook(title , author, id){
-   const newBook = {title , author, id};
-   bookList.push(newBook);
-}
-// remove books from booklist
-function removeBook(id) {
-  bookList = bookList.filter(book => book.id !== id);
-}
 // Display books
 function displayBook() {
   bookListContainer.innerHTML = '';
@@ -21,24 +12,35 @@ function displayBook() {
     <p>${book.author}</p>
     <button class="remove-btn" id=${book.id}>Remove</button>
   </li>`;
-  return bookCard;
-  }).join('')
-   bookListContainer.insertAdjacentHTML('beforeend',bookElement);
-   const removeBtns = bookListContainer.querySelectorAll('.remove-btn');
-    removeBtns.forEach((btn) => {
-    btn.addEventListener('click', removeBookFromUI)
-  })
+    return bookCard;
+  }).join('');
+  bookListContainer.insertAdjacentHTML('beforeend', bookElement);
+  const removeBtns = bookListContainer.querySelectorAll('.remove-btn');
+  removeBtns.forEach((btn) => {
+    // eslint-disable-next-line no-use-before-define
+    btn.addEventListener('click', removeBookFromUI);
+  });
 }
-//Removes book from UI
+// Add book to booklist
+function addBook(title, author, id) {
+  const newBook = { title, author, id };
+  bookList.push(newBook);
+}
+function addAndUpdateBookListToLocalStorage() {
+  localStorage.setItem('bookList', JSON.stringify(bookList));
+}
+// remove books from booklist
+function removeBook(id) {
+  bookList = bookList.filter((book) => book.id !== id);
+}
+// Removes book from UI
 function removeBookFromUI(e) {
-  const id = e.target.id;
+  const { id } = e.target;
   removeBook(+id);
   addAndUpdateBookListToLocalStorage();
   displayBook();
 }
-function addAndUpdateBookListToLocalStorage() {
-  localStorage.setItem('bookList', JSON.stringify(bookList))
-}
+
 function getBookListFromLocalStorage() {
   return localStorage.getItem('bookList') ? JSON.parse(localStorage.getItem('bookList')) : [];
 }
@@ -55,4 +57,4 @@ form.addEventListener('submit', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
   bookList = getBookListFromLocalStorage();
   displayBook();
-})
+});
