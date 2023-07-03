@@ -1,5 +1,7 @@
 const bookListContainer = document.querySelector('.book-list');
-
+const titleInput = document.querySelector('.title');
+const authorInput = document.querySelector('.author');
+const form = document.querySelector('form');
 let bookList = [
   {
     title: 'The five love languages',
@@ -28,6 +30,7 @@ function removeBook(id) {
 }
 
 function displayBook() {
+  bookListContainer.innerHTML = '';
   const bookElement = bookList.map((book) => {
     const bookCard = `<li>
     <p>${book.title}</p>
@@ -39,3 +42,12 @@ function displayBook() {
   bookListContainer.insertAdjacentHTML('beforeend',bookElement);
 }
 displayBook();
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const id = Math.floor(Math.random() * 1000);
+  const title = titleInput.value;
+  const author = authorInput.value;
+  addBook(title, author, id);
+  displayBook();
+})
