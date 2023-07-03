@@ -1,3 +1,5 @@
+const bookListContainer = document.querySelector('.book-list');
+
 let bookList = [
   {
     title: 'The five love languages',
@@ -24,3 +26,16 @@ function addBook(title , author, id){
 function removeBook(id) {
   bookList = bookList.filter(book => book.id !== id);
 }
+
+function displayBook() {
+  const bookElement = bookList.map((book) => {
+    const bookCard = `<li>
+    <p>${book.title}</p>
+    <p>${book.author}</p>
+    <button>Remove</button>
+  </li>`;
+  return bookCard;
+  }).join('')
+  bookListContainer.insertAdjacentHTML('beforeend',bookElement);
+}
+displayBook();
