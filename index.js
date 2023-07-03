@@ -12,3 +12,8 @@ const bookList = [
     author: 'Nelofar Zabi',
   },
 ];
+
+function addBook(title , author){
+   const newBook = {title , author};
+   bookList.push(newBook);
+}
