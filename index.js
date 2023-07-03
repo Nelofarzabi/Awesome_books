@@ -35,7 +35,7 @@ function displayBook() {
     const bookCard = `<li>
     <p>${book.title}</p>
     <p>${book.author}</p>
-    <button>Remove</button>
+    <button id=${book.id}>Remove</button>
   </li>`;
   return bookCard;
   }).join('')
