@@ -20,14 +20,18 @@ class BookList {
   displayBook() {
     bookListContainer.innerHTML = '';
     const bookElement = this.bookArray.map((book) => {
-      const bookCard = `<li>
-      <p>${book.title}</p>
-      <p>${book.author}</p>
+      const bookCard = `  <li>
+      <div class="title--and--author">
+        <p>"${book.title}"</p>
+        <span>by</span>
+        <p>${book.author}</p>
+      </div>
       <button class="remove-btn" id=${book.id}>Remove</button>
     </li>`;
       return bookCard;
     }).join('');
     bookListContainer.insertAdjacentHTML('beforeend', bookElement);
+    this.bookArray.length > 0 ? bookListContainer.classList.add('show--border') : bookListContainer.classList.remove('show--border'); 
     const removeBtns = bookListContainer.querySelectorAll('.remove-btn');
     removeBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
