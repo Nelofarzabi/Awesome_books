@@ -5,37 +5,46 @@
   margin: 0;
   padding: 0;
 }
+
 h1 {
   text-align: center;
 }
+
 .container {
-    width: 90%;
-    margin:20px  auto;
+  width: 90%;
+  margin: 20px  auto;
 }
+
 .container .book-list {
   list-style: none;
 }
+
 .show--border {
   border: 2px solid black;
 }
-.book-list li:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.308);
-}
+
 .book-list li {
   display: flex;
   justify-content: space-between;
   padding: 5px;
 }
+
+.book-list li:nth-child(odd) {
+  background-color: rgba(128, 128, 128, 0.308);
+}
+
 .title--and--author {
   display: flex;
   gap: 0.3rem;
 }
+
 .add--btn {
   display: block;
   margin-left: auto;
   padding: 5px 20px;
   cursor: pointer;
 }
+
 .divider {
   width: 60px;
   height: 2px;
@@ -43,26 +52,31 @@ h1 {
   margin: 10px auto;
   background-color: #000;
 }
+
 form {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   width: 50%;
   margin: auto;
   padding: 10px;
 }
+
 form > div {
   width: 100%;
 }
+
 input {
   width: 100%;
   padding: 5px;
 }
+
 @media (min-width: 768px) {
   .container {
     width: 500px;
     margin: auto;
-  } 
+  }
+
   form {
     width: 400px;
   }

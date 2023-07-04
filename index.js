@@ -31,7 +31,7 @@ class BookList {
       return bookCard;
     }).join('');
     bookListContainer.insertAdjacentHTML('beforeend', bookElement);
-    this.bookArray.length > 0 ? bookListContainer.classList.add('show--border') : bookListContainer.classList.remove('show--border'); 
+    this.checkBookListLength();
     const removeBtns = bookListContainer.querySelectorAll('.remove-btn');
     removeBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
@@ -41,6 +41,10 @@ class BookList {
         this.addAndUpdateBooksToLocalStorage();
       });
     });
+  }
+
+  checkBookListLength() {
+    return this.bookArray.length > 0 ? bookListContainer.classList.add('show--border') : bookListContainer.classList.remove('show--border');
   }
 
   addBookToUI() {
