@@ -25,7 +25,7 @@ class BookList {
       <p>${book.author}</p>
       <button class="remove-btn" id=${book.id}>Remove</button>
     </li>`;
-      return bookCard;
+    return bookCard;
     }).join('');
     bookListContainer.insertAdjacentHTML('beforeend', bookElement);
     const removeBtns = bookListContainer.querySelectorAll('.remove-btn');
