@@ -9,12 +9,14 @@ class BookList {
   }
 
   addBook(title, author, id) {
-    const newBook = { title, author, id};
+    const newBook = { title, author, id };
     this.bookArray = [...this.bookArray, newBook];
   }
+
   removeBook(id) {
     this.bookArray = this.bookArray.filter((book) => book.id !== id);
   }
+
   displayBook() {
     bookListContainer.innerHTML = '';
     const bookElement = this.bookArray.map((book) => {
@@ -23,7 +25,7 @@ class BookList {
       <p>${book.author}</p>
       <button class="remove-btn" id=${book.id}>Remove</button>
     </li>`;
-      return bookCard;
+    return bookCard;
     }).join('');
     bookListContainer.insertAdjacentHTML('beforeend', bookElement);
     const removeBtns = bookListContainer.querySelectorAll('.remove-btn'); 
