@@ -9,12 +9,14 @@ class BookList {
   }
 
   addBook(title, author, id) {
-    const newBook = { title, author, id};
+    const newBook = { title, author, id };
     this.bookArray = [...this.bookArray, newBook];
   }
+
   removeBook(id) {
     this.bookArray = this.bookArray.filter((book) => book.id !== id);
   }
+
   displayBook() {
     bookListContainer.innerHTML = '';
     const bookElement = this.bookArray.map((book) => {
@@ -26,16 +28,17 @@ class BookList {
       return bookCard;
     }).join('');
     bookListContainer.insertAdjacentHTML('beforeend', bookElement);
-    const removeBtns = bookListContainer.querySelectorAll('.remove-btn'); 
+    const removeBtns = bookListContainer.querySelectorAll('.remove-btn');
     removeBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
-        const {id} = e.target;
+        const { id } = e.target;
         this.removeBook(+id);
         this.displayBook();
         this.addAndUpdateBooksToLocalStorage();
       });
     });
   }
+
   addBookToUI() {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -47,11 +50,13 @@ class BookList {
       this.displayBook();
     });
   }
+
   addAndUpdateBooksToLocalStorage() {
     localStorage.setItem('bookList', JSON.stringify(this.bookArray));
   }
+
   getBookFromLocalStorage() {
-    return localStorage.getItem('bookList') ? JSON.parse(localStorage.getItem('bookList')) : [];
+    return localStorage.getItem('bookList') ? JSON.parse(localStorage.getItem('bookList')) : this.bookArray;
   }
 }
 
@@ -60,4 +65,4 @@ window.addEventListener('DOMContentLoaded', () => {
   book.bookArray = book.getBookFromLocalStorage();
   book.displayBook();
   book.addBookToUI();
-})
+});
