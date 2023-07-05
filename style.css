@@ -5,9 +5,11 @@
   margin: 0;
   padding: 0;
 }
+
 header {
   padding: 20px 10px;
 }
+
 h1 {
   text-align: center;
 }
@@ -16,16 +18,20 @@ h1 {
   width: 90%;
   margin: 20px  auto;
 }
+
 .hide--list--container {
   display: none;
 }
- h2 {
+
+h2 {
   text-align: center;
   padding: 10px 0;
 }
+
 .list--container .book-list {
   list-style: none;
 }
+
 .show--border {
   border: 2px solid black;
 }
@@ -34,6 +40,13 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 5px;
+}
+
+.link-container li {
+  padding: 0 5px;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 .book-list li:nth-child(odd) {
@@ -77,6 +90,7 @@ input {
   width: 100%;
   padding: 5px;
 }
+
 .header--nav--and--title {
   display: flex;
   justify-content: space-between;
@@ -84,48 +98,53 @@ input {
   border: 2px solid black;
   padding: 5px 10px;
 }
+
 .link-container {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.link-container li {
-  padding: 0 5px;
-  font-size: 18px;
-  font-weight: 900;
-  cursor: pointer;
-}
+
 .link-container li:nth-child(2) {
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
+
 .time--and--date {
   display: flex;
   justify-content: flex-end;
   padding: 5px 0;
 }
+
 .hide--form {
   display: none;
 }
+
 .contact--info {
   padding: 20px;
 }
+
 .hide--contact--info {
   display: none;
 }
+
 .contact--info p {
   align-self: flex-start;
 }
+
 .contact--info ul {
   margin-left: 4rem;
 }
+
 .hide--container {
   display: none;
 }
+
 .active--link {
   color: blue;
 }
+
 footer {
   border: 2px solid black;
   padding: 5px 10px;
@@ -138,13 +157,14 @@ footer {
 }
 
 @media (min-width: 768px) {
-  .list--container, .contact--info {
+  .list--container,
+  .contact--info {
     width: 500px;
     margin: auto;
   }
+
   footer {
     width: 100%;
-  
   }
 
   form {

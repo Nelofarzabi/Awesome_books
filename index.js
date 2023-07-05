@@ -8,12 +8,12 @@ const navLinks = document.querySelectorAll('.nav--link');
 function hideAllContainers() {
   containers.forEach((container) => {
     container.classList.add('hide--container');
-  })
+  });
 }
-function removeAllActiveLinks () {
+function removeAllActiveLinks() {
   navLinks.forEach((link) => {
     link.classList.remove('active--link');
-  })
+  });
 }
 
 navLinks.forEach((link) => {
@@ -28,10 +28,9 @@ navLinks.forEach((link) => {
       } else {
         container.classList.add('hide--container');
       }
-    })
-  })
-})
-
+    });
+  });
+});
 
 class BookList {
   constructor() {
@@ -105,5 +104,5 @@ window.addEventListener('DOMContentLoaded', () => {
   book.addBookToUI();
   hideAllContainers();
   containers[0].classList.remove('hide--container');
-  navLinks[0].classList.add('active--link')
+  navLinks[0].classList.add('active--link');
 });
