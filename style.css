@@ -12,16 +12,20 @@ h1 {
   text-align: center;
 }
 
-
-.container {
+.list--container {
   width: 90%;
   margin: 20px  auto;
 }
-
-.container .book-list {
+.hide--list--container {
+  display: none;
+}
+ h2 {
+  text-align: center;
+  padding: 10px 0;
+}
+.list--container .book-list {
   list-style: none;
 }
-
 .show--border {
   border: 2px solid black;
 }
@@ -91,7 +95,7 @@ input {
   font-size: 18px;
   font-weight: 900;
 }
-ul li:nth-child(2) {
+.link-container li:nth-child(2) {
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
@@ -100,11 +104,35 @@ ul li:nth-child(2) {
   justify-content: flex-end;
   padding: 5px 0;
 }
+.hide--form {
+  display: none;
+}
+.contact--info {
+  padding: 20px;
+}
+.hide--contact--info {
+  display: none;
+}
+.contact--info p {
+  align-self: flex-start;
+}
+.contact--info ul {
+  margin-left: 4rem;
+}
+footer {
+  border: 2px solid black;
+  padding: 5px 10px;
+  width: 90%;
+  margin: auto;
+}
 
 @media (min-width: 768px) {
-  .container {
+  .list--container, .contact--info {
     width: 500px;
     margin: auto;
+  }
+  footer {
+    width: 100%;
   }
 
   form {
