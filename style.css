@@ -5,10 +5,13 @@
   margin: 0;
   padding: 0;
 }
-
+header {
+  padding: 20px 10px;
+}
 h1 {
   text-align: center;
 }
+
 
 .container {
   width: 90%;
@@ -69,6 +72,33 @@ form > div {
 input {
   width: 100%;
   padding: 5px;
+}
+.header--nav--and--title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  padding: 5px 10px;
+}
+.link-container {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.link-container li {
+  padding: 0 5px;
+  font-size: 18px;
+  font-weight: 900;
+}
+ul li:nth-child(2) {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+.time--and--date {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0;
 }
 
 @media (min-width: 768px) {
