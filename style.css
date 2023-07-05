@@ -94,6 +94,7 @@ input {
   padding: 0 5px;
   font-size: 18px;
   font-weight: 900;
+  cursor: pointer;
 }
 .link-container li:nth-child(2) {
   border-left: 1px solid black;
@@ -119,11 +120,21 @@ input {
 .contact--info ul {
   margin-left: 4rem;
 }
+.hide--container {
+  display: none;
+}
+.active--link {
+  color: blue;
+}
 footer {
   border: 2px solid black;
   padding: 5px 10px;
   width: 90%;
   margin: auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 @media (min-width: 768px) {
@@ -133,6 +144,7 @@ footer {
   }
   footer {
     width: 100%;
+  
   }
 
   form {
