@@ -2,6 +2,35 @@ const bookListContainer = document.querySelector('.book-list');
 const titleInput = document.querySelector('.title');
 const authorInput = document.querySelector('.author');
 const form = document.querySelector('form');
+const containers = document.querySelectorAll('.containers');
+const navLinks = document.querySelectorAll('.nav--link');
+
+function hideAllContainers() {
+  containers.forEach((container) => {
+    container.classList.add('hide--container');
+  });
+}
+function removeAllActiveLinks() {
+  navLinks.forEach((link) => {
+    link.classList.remove('active--link');
+  });
+}
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    const linkClass = e.target.classList[0];
+    hideAllContainers();
+    removeAllActiveLinks();
+    e.target.classList.add('active--link');
+    containers.forEach((container) => {
+      if (container.id === linkClass) {
+        container.classList.remove('hide--container');
+      } else {
+        container.classList.add('hide--container');
+      }
+    });
+  });
+});
 
 class BookList {
   constructor() {
@@ -73,4 +102,7 @@ window.addEventListener('DOMContentLoaded', () => {
   book.bookArray = book.getBookFromLocalStorage();
   book.displayBook();
   book.addBookToUI();
+  hideAllContainers();
+  containers[0].classList.remove('hide--container');
+  navLinks[0].classList.add('active--link');
 });
